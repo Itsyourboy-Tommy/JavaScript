@@ -7,9 +7,10 @@ async function check(){
 
      console.log(data);
 
-     const temp = data.main.temp - 273.15;
-     
-     document.querySelector(".temp").innerHTML = temp += "°C"
+     var temp = data.main.temp - 273.15;
+     var ar = Math.round(temp);
+
+     document.querySelector(".temp").innerHTML = ar += "°C"
      document.querySelector(".humidity").innerHTML = data.main.humidity += "%"
      document.querySelector(".windspeed").innerHTML = data.wind.speed += "km/h"
      document.querySelector(".precipitation").innerHTML = data.rain["1h"] += "%"
