@@ -16,8 +16,7 @@ body{
     width: 100px;
     height: 100px;
     float: left;
-    padding-top: 30px;
-    padding-left: 30px;
+    padding-left: 40px;
 }
 .weather{
     background: linear-gradient(135deg, #414040, #cae5ea);
@@ -31,7 +30,7 @@ body{
     column-gap: 10%;
     width: 80%;
     margin: auto;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 .grid-item{
     text-align: center;
@@ -45,4 +44,15 @@ body{
     max-width: 100%;
     aspect-ratio: 3/2;
     object-fit: contain;
+}
+p{
+    font-weight: bold;
+}
+.under{
+    float: left;
+    padding-left: 30px;
+    margin: 0px;
+}
+.description{
+    margin: 0px;
 }
