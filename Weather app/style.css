@@ -56,3 +56,6 @@ p{
 .description{
     margin: 0px;
 }
+.weather{
+    display: none;
+}

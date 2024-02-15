@@ -1,13 +1,14 @@
 const date = new Date();
 
-const key = "fe7c8ded0ef864773085abd3b591f72d"
-const url = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=fe7c8ded0ef864773085abd3b591f72d"
+const key = "&APPID=fe7c8ded0ef864773085abd3b591f72d"
+const url = "https://api.openweathermap.org/data/2.5/weather?q="
 
-const searchvalue = document.querySelector(".search")
+const searchvalue = document.querySelector(".searrch")
 const searchbutton = document.querySelector(".bar")
+const weather = document.querySelector(".weather_image")
 
-async function check(){
-     const response = await fetch(url);
+async function check(city){
+     const response = await fetch(url + city + key);
      var data = await response.json();
 
      console.log(data);
@@ -22,6 +23,7 @@ async function check(){
      var feels = data.main.feels_like - 273.15;
      var feel = Math.round(feels);
 
+     document.querySelector(".location").innerHTML = data.name
      document.querySelector(".temp").innerHTML = ar += "°C"
      document.querySelector(".humidity").innerHTML = data.main.humidity += "%"
      document.querySelector(".windspeed").innerHTML = data.wind.speed += "km/h"
@@ -42,10 +44,20 @@ async function check(){
      }else{
           document.querySelector(".under").innerHTML = "Midnight"
      }
+     
+     weather.src = "images/" + data.weather[0].main + ".png";
+
+     document.querySelector(".weather").style.display = "block"
 };
 
-check()
-
-searchbutton.addEventListener('click', (i)=>{
-     console.log("works")
+searchbutton.addEventListener("click", () => {
+     check(searchvalue.value);
 })
+
+var input = document.querySelector(".searrch");
+input.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.querySelector(".bar").click();
+  }
+});
